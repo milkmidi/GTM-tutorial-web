@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js" integrity="sha512-SUJujhtUWZUlwsABaZNnTFRlvCu7XGBZBL1VF33qRvvgNk3pBS9E353kcag4JAv05/nsB9sanSXFbdHAUW9+lg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js" integrity="sha512-SYsXmAblZhruCNUVmTp5/v2a1Fnoia06iJh3+L9B9wUaqpRVjcNBQsqAglQG9b5+IaVCfLDH5+vW923JL5epZA==" crossorigin="anonymous"></script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MC8LXMZ');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
   <div class="container">
     <h1>hi, gtm</h1>
+    <div class="row">
+      <div class="col-3">
+        <button id="btn-primary" class="btn btn-primary w-100">Primary</button>
+      </div>
+      <div class="col-3">
+        <a href="#" class="btn btn-info w-100">Info</a>
+      </div>
+      <div class="col-3">
+        <button id="custom-event-btn" class="btn btn-danger w-100">Send CustomEvent</button>
+      </div>
+    </div>
+    <div class="row">
+      <div id="app"></div>
+    </div>
   </div>
+  <script>
+    document.getElementById('custom-event-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(e);
+      window.dataLayer.push({
+        event: 'CUSTOM_EVENT',
+        someValue: '我是自定事件的value'
+      })
+    })
+  </script>
 </body>
 </html>
